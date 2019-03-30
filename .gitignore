@@ -3,3 +3,12 @@
 ################################################################################
 
 /WACore/obj
+/WACore/bin/Debug
+/WACore.Data/obj
+/WACore.Data/bin/Debug
+/WACore.Dto/obj
+/WACore.Dto/bin/Debug/netcoreapp2.1
+/WACore.Service/obj
+/WACore.Service/bin/Debug
+/WACore.Test/obj
+/WACore.Test/bin/Debug
