@@ -12,3 +12,9 @@
 /WACore.Service/bin/Debug
 /WACore.Test/obj
 /WACore.Test/bin/Debug
+/.vs/WACore/v16/.suo
+/.vs/WACore/v16/Server/sqlite3/db.lock
+/.vs/WACore/v16/Server/sqlite3/storage.ide
+/.vs/WACore/v16/Server/sqlite3/storage.ide-shm
+/.vs/WACore/v16/Server/sqlite3/storage.ide-wal
+/.vs/slnx.sqlite
