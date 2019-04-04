@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using WACore.Service.Interfaces;
 
 namespace WACore.Controllers
@@ -9,20 +10,20 @@ namespace WACore.Controllers
     public class ValuesController : ControllerBase
     {
         private readonly ITestService _testService;
+        private readonly IOptions<AppSettings> _options;
 
-        //injecting testService for use in controller.
-        public ValuesController(ITestService testService)
+        //injecting testService and AppSettings for use in controller.
+        public ValuesController(ITestService testService, IOptions<AppSettings> options)
         {
             _testService = testService;
+            _options = options;
         }
 
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            //only for testing purposes.
-            var result = _testService.Test1("350ABF77-B945-4B94-A6A4-3177BDEDD5D8").Result;
-            return new string[] { result.UserId.ToString(), result.Expire, result.Username };
+            return new string[] { "value1","value2" };
         }
 
         // GET api/values/5

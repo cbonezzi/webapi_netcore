@@ -1,6 +1,7 @@
 ﻿namespace WACore
 {
-    internal class AppSettings
+    public class AppSettings
     {
+        public string Dev { get; set; }
     }
 }
