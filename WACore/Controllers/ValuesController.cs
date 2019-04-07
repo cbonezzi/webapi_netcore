@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WACore.Dto.Users;
 using WACore.Service.Interfaces;
 
 namespace WACore.Controllers
 {
     [Route("api/[controller]")]
+    [Produces("application/json")]
     [ApiController]
     public class ValuesController : ControllerBase
     {
@@ -20,9 +23,7 @@ namespace WACore.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            //only for testing purposes.
-            var result = _testService.Test1("350ABF77-B945-4B94-A6A4-3177BDEDD5D8").Result;
-            return new string[] { result.UserId.ToString(), result.Expire, result.Username };
+            return new string[] { "value1", "value2" };
         }
 
         // GET api/values/5
@@ -32,10 +33,18 @@ namespace WACore.Controllers
             return "value";
         }
 
+        [HttpGet("{email}")]
+        public async Task<UserDto> GetUser(string email)
+        {
+            var result = await _testService.Test3(email);
+            return result;
+        }
+
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] IList<UserDto> user)
         {
+            _testService.Test2(user, true);
         }
 
         // PUT api/values/5

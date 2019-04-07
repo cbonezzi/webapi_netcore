@@ -13,7 +13,13 @@ namespace WACore.Data.Model
         [StringLength(8)]
         public string Expire { get; set; }
         [Required]
-        [StringLength(20)]
+        [StringLength(50)]
         public string Username { get; set; }
+        [StringLength(12)]
+        public string Phone { get; set; }
+        [StringLength(20)]
+        public string Firstname { get; set; }
+        [StringLength(20)]
+        public string Lastname { get; set; }
     }
 }

@@ -6,7 +6,10 @@ using Microsoft.Extensions.DependencyInjection;
 using WACore.Data.Core;
 using WACore.Data.Core.Interfaces;
 using WACore.Data.Model;
+using WACore.Dto.Users;
 using WACore.Service.Interfaces;
+using WACore.Service.Mappers;
+using WACore.Service.Mappers.Interfaces;
 using WACore.Service.Services;
 
 namespace WACore
@@ -39,9 +42,15 @@ namespace WACore
             //this is how we are capable of using only one class for the repo, without the need to 
             //create contextfactory and had to create additional repo classes per type
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(IMappers<UserDto, UserCred>), typeof(MapperToUserCred));
+            services.AddScoped(typeof(IMappers<UserCred, UserDto>), typeof(MapperToUserDto));
             services.AddTransient<ITestService, TestService>();
 
-            services.AddMvc();
+            services.AddMvcCore(options => 
+            {
+                options.RequireHttpsPermanent = true;
+            })
+            .AddJsonFormatters();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

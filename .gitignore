@@ -12,3 +12,6 @@
 /WACore.Service/bin/Debug
 /WACore.Test/obj
 /WACore.Test/bin/Debug
+/.vs
+/WACore._SQL/obj/Debug
+/WACore._SQL/bin/Debug

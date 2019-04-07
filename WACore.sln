@@ -3,20 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WACore", "WACore\WACore.csproj", "{B89767E6-69EB-4399-9F09-3320FBEAFD7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WACore", "WACore\WACore.csproj", "{B89767E6-69EB-4399-9F09-3320FBEAFD7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WACore.Service", "WACore.Service\WACore.Service.csproj", "{4262CC6A-67E4-4ED4-B40A-9E198A67E6A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WACore.Service", "WACore.Service\WACore.Service.csproj", "{4262CC6A-67E4-4ED4-B40A-9E198A67E6A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WACore.Data", "WACore.Data\WACore.Data.csproj", "{AB962347-93A0-451A-B35F-A0B4F2F9CA2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WACore.Data", "WACore.Data\WACore.Data.csproj", "{AB962347-93A0-451A-B35F-A0B4F2F9CA2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WACore.Test", "WACore.Test\WACore.Test.csproj", "{97C071D6-C0AD-4C14-9A0D-58E13E70F867}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WACore.Test", "WACore.Test\WACore.Test.csproj", "{97C071D6-C0AD-4C14-9A0D-58E13E70F867}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C1D19FA7-22A0-4F73-BF9A-DD4DFB2364C1}"
 	ProjectSection(SolutionItems) = preProject
 		Readme.txt = Readme.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WACore.Dto", "WACore.Dto\WACore.Dto.csproj", "{5AB8F762-A6F8-4BB5-AC48-BD665DF362A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WACore.Dto", "WACore.Dto\WACore.Dto.csproj", "{5AB8F762-A6F8-4BB5-AC48-BD665DF362A6}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "WACore._SQL", "WACore._SQL\WACore._SQL.sqlproj", "{086A55D5-5453-4FB9-9A65-50A1116809B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,32 +46,17 @@ Global
 		{5AB8F762-A6F8-4BB5-AC48-BD665DF362A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AB8F762-A6F8-4BB5-AC48-BD665DF362A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AB8F762-A6F8-4BB5-AC48-BD665DF362A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{086A55D5-5453-4FB9-9A65-50A1116809B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{086A55D5-5453-4FB9-9A65-50A1116809B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{086A55D5-5453-4FB9-9A65-50A1116809B5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{086A55D5-5453-4FB9-9A65-50A1116809B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{086A55D5-5453-4FB9-9A65-50A1116809B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{086A55D5-5453-4FB9-9A65-50A1116809B5}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A8324862-7E98-4FC6-B19C-D1DEE8752546}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 6
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://yoda:8080/tfs/emergingtekcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = WACore\\WACore.csproj
-		SccProjectName1 = WACore
-		SccLocalPath1 = WACore
-		SccProjectUniqueName2 = WACore.Service\\WACore.Service.csproj
-		SccProjectName2 = WACore.Service
-		SccLocalPath2 = WACore.Service
-		SccProjectUniqueName3 = WACore.Data\\WACore.Data.csproj
-		SccProjectName3 = WACore.Data
-		SccLocalPath3 = WACore.Data
-		SccProjectUniqueName4 = WACore.Test\\WACore.Test.csproj
-		SccProjectName4 = WACore.Test
-		SccLocalPath4 = WACore.Test
-		SccProjectUniqueName5 = WACore.Dto\\WACore.Dto.csproj
-		SccProjectName5 = WACore.Dto
-		SccLocalPath5 = WACore.Dto
 	EndGlobalSection
 EndGlobal

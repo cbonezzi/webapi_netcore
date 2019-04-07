@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WACore.Service.Mappers
+namespace WACore.Service.Mappers.Interfaces
 {
     public interface IMappers<TFrom, TTo>
     {
