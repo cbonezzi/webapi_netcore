@@ -35,6 +35,7 @@ namespace WACore
             services.AddDbContext<WebAppContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
             //adding dbcontext
             services.AddSingleton(typeof(DbContext), typeof(WebAppContext));
 

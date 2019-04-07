@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using WACore.Dto.Users;
 using WACore.Service.Interfaces;
 
@@ -12,11 +13,13 @@ namespace WACore.Controllers
     public class ValuesController : ControllerBase
     {
         private readonly ITestService _testService;
+        private readonly IOptions<AppSettings> _options;
 
-        //injecting testService for use in controller.
-        public ValuesController(ITestService testService)
+        //injecting testService and AppSettings for use in controller.
+        public ValuesController(ITestService testService, IOptions<AppSettings> options)
         {
             _testService = testService;
+            _options = options;
         }
 
         // GET api/values
