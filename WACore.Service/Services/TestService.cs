@@ -50,12 +50,15 @@ namespace WACore.Service.Services
             return null;
         }
 
-        public async Task<string> Test4(string email)
+        public async Task<IList<UserDto>> Test4()
         {
-            var result = _userRepository.Filter(x => x.Username == email);
-            if (result.Count == 1)
-                return result[0].UserId.ToString();
-            return string.Empty;
+            var result = _userRepository.GetAllEnumerable();
+            var userList = new List<UserDto>();
+            foreach(var user in result)
+            {
+                userList.Add(_mapperToDto.Map(user));
+            }
+            return userList;
         }
 
     }

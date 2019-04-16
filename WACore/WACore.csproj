@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="TreeRouter.Http" Version="0.9.7.3" />
   </ItemGroup>
 
   <ItemGroup>

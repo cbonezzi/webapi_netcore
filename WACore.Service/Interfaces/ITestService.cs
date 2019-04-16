@@ -12,7 +12,7 @@ namespace WACore.Service.Interfaces
         Task<UserCred> Test1(string id);
         Task Test2(IList<UserDto> user, bool save = false);
         Task<UserDto> Test3(string email);
-        Task<string> Test4(string email);
+        Task<IList<UserDto>> Test4();
 
     }
 }

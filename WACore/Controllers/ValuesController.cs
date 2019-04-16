@@ -23,10 +23,11 @@ namespace WACore.Controllers
         }
 
         // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        [Route("users/")]
+        public async Task<IList<UserDto>> Get()
         {
-            return new string[] { "value1", "value2" };
+            var result = await _testService.Test4();
+            return result;
         }
 
         // GET api/values/5
@@ -36,12 +37,20 @@ namespace WACore.Controllers
             return "value";
         }
 
-        [HttpGet("{email}")]
-        public async Task<UserDto> GetUser(string email)
+        // GET api/values/pajuo?email=email
+        [Route("pajuo/")]
+        public async Task<UserDto> Get(string email)
         {
             var result = await _testService.Test3(email);
             return result;
         }
+
+        //[Route("allusers/")]
+        //public async Task<IList<UserDto>> Get()
+        //{
+        //    var result = await _testService.Test4();
+        //    return result;
+        //}
 
         // POST api/values
         [HttpPost]

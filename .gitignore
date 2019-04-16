@@ -22,3 +22,8 @@
 /.vs
 /WACore._SQL/obj/Debug
 /WACore._SQL/bin/Debug
+/WACore/bin
+/WACore.Data/bin/Release/netcoreapp2.2
+/WACore.Dto/bin
+/WACore.Service/bin/Release/netcoreapp2.2
+/WACore._SQL/WACore._SQL.jfm
