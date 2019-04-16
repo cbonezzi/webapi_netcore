@@ -32,18 +32,28 @@ namespace WACore.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ActionResult<UserDto> Get(string id)
         {
-            return "value";
+            var result = _testService.Test1(id).Result;
+
+            return new UserDto
+            {
+                UserId = result.UserId.ToString(),
+                Expire = result.Expire,
+                Firstname = result.Firstname,
+                Lastname = result.Lastname,
+                Phone = result.Phone,
+                Username = result.Username
+            };
         }
 
         // GET api/values/pajuo?email=email
-        [Route("pajuo/")]
-        public async Task<UserDto> Get(string email)
-        {
-            var result = await _testService.Test3(email);
-            return result;
-        }
+        //[Route("pajuo/")]
+        //public async Task<UserDto> Get(string email)
+        //{
+        //    var result = await _testService.Test3(email);
+        //    return result;
+        //}
 
         //[Route("allusers/")]
         //public async Task<IList<UserDto>> Get()
@@ -53,10 +63,18 @@ namespace WACore.Controllers
         //}
 
         // POST api/values
+        //[HttpPost]
+        //public void Post([FromBody] IList<UserDto> user)
+        //{
+        //    _testService.Test2(user, true);
+        //}
+
         [HttpPost]
-        public void Post([FromBody] IList<UserDto> user)
+        public void Post([FromForm] UserDto user)
         {
-            _testService.Test2(user, true);
+            var list = new List<UserDto>();
+            list.Add(user);
+            _testService.Test2(list, true);
         }
 
         // PUT api/values/5

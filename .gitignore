@@ -27,3 +27,4 @@
 /WACore.Dto/bin
 /WACore.Service/bin/Release/netcoreapp2.2
 /WACore._SQL/WACore._SQL.jfm
+/WACore._SQL/WACore._SQL.dbmdl
