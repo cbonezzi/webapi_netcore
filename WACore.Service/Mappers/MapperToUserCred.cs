@@ -1,4 +1,5 @@
-﻿using WACore.Data.Model;
+﻿using System;
+using WACore.Data.Model;
 using WACore.Dto.Users;
 using WACore.Service.Mappers.Interfaces;
 
@@ -14,7 +15,9 @@ namespace WACore.Service.Mappers
                 Username = user.Username,
                 Firstname = user.Firstname,
                 Lastname = user.Lastname,
-                Phone = user.Phone.Replace(" ", "")
+                UserId = string.IsNullOrEmpty(user.UserId) ? Guid.Empty : new Guid(user.UserId),
+                Phone = user.Phone.Replace(" ", ""),
+                Age = user.Age
             };
         }
     }

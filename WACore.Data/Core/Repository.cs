@@ -39,20 +39,57 @@ namespace WACore.Data.Core
 
         #endregion
 
-        #region Add
+        #region Add/Update
 
         public virtual async Task Add(T entity, bool save = false)
         {
-            await Context.Set<T>().AddAsync(entity);
+            Context.Set<T>().Add(entity);
             if(save)
-                Save();
+                await Save();
         }
 
-        public virtual async Task Add(IList<T> entities, bool save = false)
+        public virtual async Task Add(IEnumerable<T> entities, bool save = false)
         {
-            await Context.Set<T>().AddRangeAsync(entities);
+            Context.Set<T>().AddRange(entities);
             if (save)
-                Save();
+                await Save();
+        }
+
+        public virtual async Task<int> Update(T entity, bool save = false)
+        {
+            Context.Entry(entity).State = EntityState.Modified;
+
+            if (save)
+            {
+                return await Save();
+            }
+            return 0;
+        }
+
+        #endregion
+
+        #region Delete
+
+        public virtual async Task Delete(T entity, bool save = false)
+        {
+            Context.Set<T>().Remove(entity);
+
+            if (save)
+                await Save();
+
+        }
+
+        public virtual async Task Delete(IEnumerable<T> entities, bool save = false)
+        {
+            Context.Set<T>().RemoveRange(entities);
+
+            if (save)
+                await Save();
+        }
+
+        public virtual async Task Delete(Expression<Func<T, bool>> filterExpression, bool save = false)
+        {
+            await Delete(Filter(filterExpression), save);
         }
 
         #endregion
@@ -66,16 +103,17 @@ namespace WACore.Data.Core
 
         #endregion
 
-        private void Save()
+        private async Task<int> Save()
         {
             try
             {
-                Context.SaveChangesAsync();
+                return await Context.SaveChangesAsync();
             }
             catch (Exception ex)
             {
                 var exception = ex;
             }
+            return 0;
         }
     }
 }

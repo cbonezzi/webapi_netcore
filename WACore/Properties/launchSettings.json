@@ -3,11 +3,11 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iis": {
-      "applicationUrl": "https://localhost/WACore",
+      "applicationUrl": "http://localhost/WACore",
       "sslPort": 0
     },
     "iisExpress": {
-      "applicationUrl": "https://localhost:44345/",
+      "applicationUrl": "https://localhost:44345/WACore/",
       "sslPort": 44345
     }
   },
@@ -16,7 +16,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/values",
+      "launchUrl": "api/home",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -24,14 +24,25 @@
     "WACore": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/values",
+      "launchUrl": "api/home",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "https://localhost:5001;http://localhost:5000"
+      "applicationUrl": "https://localhost:5001;http://localhost:5000",
+      "ConnectionStrings": {
+        "DefaultConnection": "Server=.;Database=WebApp;Trusted_Connection=True;MultipleActiveResultSets=true"
+      }
     },
     "IIS": {
-      "commandName": "IIS"
+      "commandName": "IIS",
+      "launchBrowser": true,
+      "launchUrl": "api/home",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "ConnectionStrings": {
+        "DefaultConnection": "Server=.;Database=WebApp;Trusted_Connection=True;MultipleActiveResultSets=true"
+      }
     }
   }
 }

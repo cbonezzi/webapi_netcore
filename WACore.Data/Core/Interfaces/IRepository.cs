@@ -13,7 +13,11 @@ namespace WACore.Data.Core.Interfaces
         IQueryable<T> GetAllQueryable();
         IEnumerable<T> GetAllEnumerable();
         Task Add(T entity, bool save = false);
-        Task Add(IList<T> entity, bool save = false);
+        Task Add(IEnumerable<T> entity, bool save = false);
+        Task<int> Update(T entity, bool save = false);
+        Task Delete(T entity, bool save = false);
+        Task Delete(IEnumerable<T> entities, bool save = false);
+        Task Delete(Expression<Func<T, bool>> filterExpression, bool save = false);
         IList<T> Filter(Expression<Func<T, bool>> filterExpression);
     }
 }

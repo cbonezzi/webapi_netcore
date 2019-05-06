@@ -15,7 +15,8 @@ namespace WACore.Service.Mappers
                 Username = user.Username,
                 Firstname = user.Firstname,
                 Lastname = user.Lastname,
-                Phone = user.Phone.Replace(" ", "")
+                Phone = user.Phone.Replace(" ", ""),
+                Age = user.Age
             };
         }
     }
