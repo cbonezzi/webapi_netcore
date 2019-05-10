@@ -41,21 +41,21 @@ namespace WACore.Data.Core
 
         #region Add/Update
 
-        public virtual async Task Add(T entity, bool save = false)
+        public virtual async Task Add(T entity, bool save = true)
         {
             Context.Set<T>().Add(entity);
             if(save)
                 await Save();
         }
 
-        public virtual async Task Add(IEnumerable<T> entities, bool save = false)
+        public virtual async Task Add(IEnumerable<T> entities, bool save = true)
         {
             Context.Set<T>().AddRange(entities);
             if (save)
                 await Save();
         }
 
-        public virtual async Task<int> Update(T entity, bool save = false)
+        public virtual async Task<int> Update(T entity, bool save = true)
         {
             Context.Entry(entity).State = EntityState.Modified;
 
@@ -70,7 +70,7 @@ namespace WACore.Data.Core
 
         #region Delete
 
-        public virtual async Task Delete(T entity, bool save = false)
+        public virtual async Task Delete(T entity, bool save = true)
         {
             Context.Set<T>().Remove(entity);
 
@@ -79,7 +79,7 @@ namespace WACore.Data.Core
 
         }
 
-        public virtual async Task Delete(IEnumerable<T> entities, bool save = false)
+        public virtual async Task Delete(IEnumerable<T> entities, bool save = true)
         {
             Context.Set<T>().RemoveRange(entities);
 
@@ -87,7 +87,7 @@ namespace WACore.Data.Core
                 await Save();
         }
 
-        public virtual async Task Delete(Expression<Func<T, bool>> filterExpression, bool save = false)
+        public virtual async Task Delete(Expression<Func<T, bool>> filterExpression, bool save = true)
         {
             await Delete(Filter(filterExpression), save);
         }

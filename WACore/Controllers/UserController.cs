@@ -51,7 +51,7 @@ namespace WACore.Controllers
         [Route("AddUsers/")]
         public void Post([FromBody] IList<UserDto> user)
         {
-            _userService.Add(user, true);
+            _userService.Add(user);
         }
 
         [HttpPost]
@@ -59,14 +59,14 @@ namespace WACore.Controllers
         {
             var list = new List<UserDto>();
             list.Add(user);
-            _userService.Add(list, true);
+            _userService.Add(list);
         }
 
         // PUT api/user/UpdateUser
         [Route("UpdateUser/")]
         public int PutUser([FromBody] UserDto user)
         {
-            var result = _userService.UpdateUser(user, true).Result;
+            var result = _userService.UpdateUser(user).Result;
             return result;
         }
 

@@ -12,12 +12,12 @@ namespace WACore.Data.Core.Interfaces
         Task<T> GetById(Guid id);
         IQueryable<T> GetAllQueryable();
         IEnumerable<T> GetAllEnumerable();
-        Task Add(T entity, bool save = false);
-        Task Add(IEnumerable<T> entity, bool save = false);
-        Task<int> Update(T entity, bool save = false);
-        Task Delete(T entity, bool save = false);
-        Task Delete(IEnumerable<T> entities, bool save = false);
-        Task Delete(Expression<Func<T, bool>> filterExpression, bool save = false);
+        Task Add(T entity, bool save = true);
+        Task Add(IEnumerable<T> entity, bool save = true);
+        Task<int> Update(T entity, bool save = true);
+        Task Delete(T entity, bool save = true);
+        Task Delete(IEnumerable<T> entities, bool save = true);
+        Task Delete(Expression<Func<T, bool>> filterExpression, bool save = true);
         IList<T> Filter(Expression<Func<T, bool>> filterExpression);
     }
 }
