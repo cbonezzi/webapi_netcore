@@ -46,13 +46,14 @@ namespace WACore
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped(typeof(IMappers<UserDto, UserCred>), typeof(MapperToUserCred));
             services.AddScoped(typeof(IMappers<UserCred, UserDto>), typeof(MapperToUserDto));
-            services.AddTransient<ITestService, TestService>();
+            services.AddTransient<IUserService, UserService>();
 
-            services.AddMvcCore(options => 
+            services.AddMvcCore(options =>
             {
                 options.RequireHttpsPermanent = true;
             })
             .AddJsonFormatters()
+            .AddRazorViewEngine()
             .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -71,7 +72,8 @@ namespace WACore
             app.UseHttpsRedirection();
             app.UseMvc(routes =>
             {
-                routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}")
+                .MapRoute("default", "{controller=Home}/{action=Index}/{email?}");
             });
         }
     }

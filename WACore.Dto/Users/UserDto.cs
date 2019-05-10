@@ -8,5 +8,6 @@
         public string Firstname;
         public string Lastname;
         public string Phone;
+        public string Age;
     }
 }

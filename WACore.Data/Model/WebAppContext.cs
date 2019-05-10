@@ -22,8 +22,8 @@ namespace WACore.Data.Model
         {
             if (!optionsBuilder.IsConfigured)
             {
-                #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=.\\;Database=WebApp;UID=WebUser;PWD=P@ssw0rd");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                optionsBuilder.UseSqlServer("Server=.\\;Database=WebApp;Trusted_Connection=True;");
             }
         }
 
@@ -34,6 +34,8 @@ namespace WACore.Data.Model
             modelBuilder.Entity<UserCred>(entity =>
             {
                 entity.Property(e => e.UserId).HasDefaultValueSql("(newsequentialid())");
+
+                entity.Property(e => e.Age).IsUnicode(false);
 
                 entity.Property(e => e.Expire).IsUnicode(false);
 
