@@ -12,8 +12,8 @@ namespace WACore.Service.Interfaces
         Task<UserDto> GetUserById(string id);
         Task Add(IList<UserDto> user, bool save = false);
         UserDto GetUserByEmail(string email);
-        Task<IList<UserDto>> Test4();
         Task<int> UpdateUser(UserDto user, bool save = false);
+		Task<IList<UserDto>> Test4(int page, int rows);
 
-    }
+	}
 }

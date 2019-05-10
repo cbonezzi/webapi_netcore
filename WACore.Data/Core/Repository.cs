@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Dynamic;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
@@ -99,6 +100,32 @@ namespace WACore.Data.Core
         public virtual IList<T> Filter(Expression<Func<T, bool>> filterExpression)
         {
             return Context.Set<T>().Where(filterExpression).ToList();
+        }
+
+        #endregion
+
+        #region Paging
+
+        public virtual IQueryable<T> GetPage(out int total, int page = 0, int rows = 0, string orderBy = null, string orderDir = null, string includeProperties = "")
+        {
+            IQueryable<T> query = Context.Set<T>();
+            return GetPageCommon(out total, query, page, rows, orderBy, orderDir, includeProperties);
+        }
+
+        public virtual IQueryable<T> GetPageCommon(out int total, IQueryable<T> query, int page, int rows, string orderBy = null, string orderDir = null, string includeProperties = "")
+        {
+            total = query.Count();
+
+            foreach(var includeProperty in includeProperties.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                query = query.Include(includeProperty);
+            }
+
+            if(rows > 0)
+            {
+                query = query.OrderBy($"{orderBy} {orderDir}").Skip((page * rows) - rows).Take(rows);
+            }
+            return query;
         }
 
         #endregion

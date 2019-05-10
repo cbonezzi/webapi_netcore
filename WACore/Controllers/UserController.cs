@@ -27,7 +27,7 @@ namespace WACore.Controllers
         [Route("users/")]
         public async Task<IList<UserDto>> Get()
         {
-            var result = await _userService.Test4();
+            var result = await _userService.Test4(1, 10);
             return result;
         }
 

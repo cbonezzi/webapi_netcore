@@ -19,5 +19,9 @@ namespace WACore.Data.Core.Interfaces
         Task Delete(IEnumerable<T> entities, bool save = true);
         Task Delete(Expression<Func<T, bool>> filterExpression, bool save = true);
         IList<T> Filter(Expression<Func<T, bool>> filterExpression);
+
+        //paging
+        IQueryable<T> GetPage(out int total, int page = 0, int rows = 0, string orderBy = null, string orderDir = null, string includeProperties = "");
+        IQueryable<T> GetPageCommon(out int total, IQueryable<T> query, int page, int rows, string orderBy = null, string orderDir = null, string includeProperties = "");
     }
 }
