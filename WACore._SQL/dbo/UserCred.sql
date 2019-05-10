@@ -5,6 +5,7 @@
     [Phone]     VARCHAR (12)     NULL,
     [Firstname] VARCHAR (20)     NULL,
     [Lastname]  VARCHAR (20)     NULL,
+    [Age] VARCHAR(3) NULL, 
     CONSTRAINT [PK_UserCred] PRIMARY KEY CLUSTERED ([UserId] ASC)
 );
 
