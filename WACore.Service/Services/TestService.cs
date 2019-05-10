@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using WACore.Dto.Users;
 using WACore.Service.Mappers.Interfaces;
 using System.Collections.Generic;
+using System.Linq.Expressions;
+using System.Linq;
 
 namespace WACore.Service.Services
 {
@@ -50,9 +52,13 @@ namespace WACore.Service.Services
             return null;
         }
 
-        public async Task<IList<UserDto>> Test4()
+        public async Task<IList<UserDto>> Test4(int page, int rows)
         {
-            var result = _userRepository.GetAllEnumerable();
+            Expression<Func<UserCred, bool>> where = g => g.Expire == "00000001";
+
+            var query = _userRepository.GetAllQueryable().Where(where);
+
+            var result = _userRepository.GetPageCommon(out var total, query, page, rows);
             var userList = new List<UserDto>();
             foreach(var user in result)
             {
@@ -60,6 +66,5 @@ namespace WACore.Service.Services
             }
             return userList;
         }
-
     }
 }
