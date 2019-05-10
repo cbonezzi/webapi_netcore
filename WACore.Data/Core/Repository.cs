@@ -129,7 +129,8 @@ namespace WACore.Data.Core
         }
 
         #endregion
-        private void Save()
+
+        private async Task<int> Save()
         {
             try
             {
