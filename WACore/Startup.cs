@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using WACore.Data.Core;
 using WACore.Data.Core.Interfaces;
 using WACore.Data.Model;
-using WACore.Dto.Users;
+using WACore.Dto.Dtos;
 using WACore.Service.Interfaces;
 using WACore.Service.Mappers;
 using WACore.Service.Mappers.Interfaces;
@@ -46,7 +46,10 @@ namespace WACore
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped(typeof(IMappers<UserDto, UserCred>), typeof(MapperToUserCred));
             services.AddScoped(typeof(IMappers<UserCred, UserDto>), typeof(MapperToUserDto));
+			services.AddScoped(typeof(IMappers<NamesDto, HumanNames>), typeof(MapperToHumanName));
+			services.AddScoped(typeof(IMappers<HumanNames, NamesDto>), typeof(MapperToHumanDto));
             services.AddTransient<IUserService, UserService>();
+			services.AddTransient<INameService, NameService>();
 
             services.AddMvcCore(options =>
             {

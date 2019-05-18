@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using WACore.Data.Model;
-using WACore.Dto.Users;
+using WACore.Dto.Dtos;
 
 namespace WACore.Service.Interfaces
 {

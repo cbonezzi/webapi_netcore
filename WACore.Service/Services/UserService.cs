@@ -3,7 +3,7 @@ using WACore.Data.Model;
 using WACore.Data.Core.Interfaces;
 using WACore.Service.Interfaces;
 using System.Threading.Tasks;
-using WACore.Dto.Users;
+using WACore.Dto.Dtos;
 using WACore.Service.Mappers.Interfaces;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -70,7 +70,7 @@ namespace WACore.Service.Services
 
             var query = _userRepository.GetAllQueryable().Where(where);
 
-            var result = _userRepository.GetPageCommon(out var total, query, page, rows);
+            var result = _userRepository.GetPageCommon(out var total, query, page, rows, "userId", "asc");
             var userList = new List<UserDto>();
             foreach(var user in result)
             {

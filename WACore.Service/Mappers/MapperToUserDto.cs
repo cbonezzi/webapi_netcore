@@ -1,5 +1,5 @@
 ﻿using WACore.Data.Model;
-using WACore.Dto.Users;
+using WACore.Dto.Dtos;
 using WACore.Service.Mappers.Interfaces;
 
 namespace WACore.Service.Mappers

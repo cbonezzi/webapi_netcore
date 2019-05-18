@@ -64,5 +64,6 @@
   <ItemGroup>
     <Build Include="dbo\UserInfo.sql" />
     <Build Include="dbo\UserCred.sql" />
+    <Build Include="dbo\HumanNames.sql" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,4 @@
-﻿namespace WACore.Dto.Users
+﻿namespace WACore.Dto.Dtos
 {
     public class UserDto
     {

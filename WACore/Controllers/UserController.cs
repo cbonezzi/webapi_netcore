@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using WACore.Dto.Users;
+using WACore.Dto.Dtos;
 using WACore.Service.Interfaces;
 
 namespace WACore.Controllers

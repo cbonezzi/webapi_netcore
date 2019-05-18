@@ -15,6 +15,7 @@ namespace WACore.Data.Model
         {
         }
 
+        public virtual DbSet<HumanNames> HumanNames { get; set; }
         public virtual DbSet<UserCred> UserCred { get; set; }
         public virtual DbSet<UserInfo> UserInfo { get; set; }
 
@@ -30,6 +31,17 @@ namespace WACore.Data.Model
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("ProductVersion", "2.2.3-servicing-35854");
+
+            modelBuilder.Entity<HumanNames>(entity =>
+            {
+                entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
+
+                entity.Property(e => e.Firstname).IsUnicode(false);
+
+                entity.Property(e => e.Lastname).IsUnicode(false);
+
+                entity.Property(e => e.Sex).IsUnicode(false);
+            });
 
             modelBuilder.Entity<UserCred>(entity =>
             {
